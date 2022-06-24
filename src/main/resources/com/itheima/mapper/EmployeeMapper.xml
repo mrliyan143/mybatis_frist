@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.pojo.Employee">
+    <select id="findEmpById" parameterType="int" resultType="com.itheima.pojo.Employee">
+        select * from employee where id = #{id}
+    </select>
+
+    <insert id="addEmployee" parameterType="com.itheima.pojo.Employee">
+        insert into employee (`name`,age,`position`) values (#{name},#{age},#{position})
+    </insert>
+
+    <update id="upEmployee" parameterType="com.itheima.pojo.Employee">
+        update employee set `position` = #{position} where id = #{id}
+    </update>
+
+    <delete id="deleteEmployee" parameterType="int">
+        delete  from employee where  id = #{id}
+    </delete>
+</mapper>

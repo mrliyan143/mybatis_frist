@@ -4,20 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.dao.UserMapper">
 
-    <resultMap id="UserMap" type="Users">
-        <id property="uid" column="uid"/>
-        <result property="uname" column="uname"/>
-        <result property="uage" column="uage"/>
-    </resultMap>
-    <select id="findById"  resultMap="UserMap">
-        select * from users
-    </select>
+<!--    <resultMap id="UserMap" type="com.itheima.pojo.Users">-->
+<!--        <id property="uid" column="uid"/>-->
+<!--        <result property="uname" column="uname"/>-->
+<!--        <result property="uage" column="uage"/>-->
+<!--    </resultMap>-->
+<!--    <select id="findById"  resultMap="com.itheima.pojo.Users">-->
+<!--        select * from users-->
+<!--    </select>-->
 
     <select id="findIdByUser" parameterType="int" resultType="com.itheima.pojo.Users">
         select * from users where uid = #{id}
     </select>
 
-    <insert id="insertUser" parameterType="Users">
+    <insert id="insertUser" parameterType="com.itheima.pojo.Users">
         insert into users value (#{uid},#{uname},#{uage})
     </insert>
 </mapper>

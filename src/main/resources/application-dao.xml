@@ -9,7 +9,7 @@
                 http://www.springframework.org/schema/context
                 https://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:db.properties"/>
-    <bean xml:id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${mysql.driver}"/>
         <property name="url" value="${mysql.url}"/>
         <property name="username" value="${mysql.username}"/>
@@ -18,7 +18,7 @@
 <!--    创建sqlsessionfactory-->
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" value="dataSource"/>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.itheima.dao"/>
